@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElectroGlobalShop - Your Electronic Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome para los íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/logo.png" alt="ElectroGlobalShop" height="40">
+                <span>ElectroGlobalShop</span>
+            </div>
+            <div class="nav-icons-row">
+                <nav>
+                    <ul>
+                        <li><a href="index.html"><strong>Inicio</strong></a></li>
+                        <li><a href="catalog.html"><strong>Catálogo</strong></a></li>
+                        <li><a href="gallery.html"><strong>Galería</strong></a></li>
+                        <li><a href="testimonials.html"><strong>Testimonios</strong></a></li>
+                        <li><a href="contact.html"><strong>Contacto</strong></a></li>
+                    </ul>
+                </nav>
+                <div class="header-icons">
+                    <a href="login.html" title="Iniciar sesión"><i class="fas fa-user"></i></a>
+                    <a href="cart.html" title="Carrito de compras"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="catalog">
+        <h2>Product Catalog</h2>
+        <div class="products">
+            <div class="product">
+                <img src="images/laptop.jpg" alt="Laptop">
+                <h3><a href="laptop.html">UltraBook Pro</a></h3>
+                <p>High-performance laptop for professionals.</p>
+                <span>$999</span>
+            </div>
+            <div class="product">
+                <img src="images/smartphone.jpg" alt="Smartphone">
+                <h3><a href="smartphone.html">SmartX Phone</a></h3>
+                <p>Latest smartphone with advanced features.</p>
+                <span>$699</span>
+            </div>
+            <div class="product">
+                <img src="images/headphones.jpg" alt="Headphones">
+                <h3><a href="headphones.html">NoiseCancel Headphones</a></h3>
+                <p>Experience music like never before.</p>
+                <span>$199</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <h2>Product Gallery</h2>
+        <div class="gallery">
+            <img src="images/laptop.jpg" alt="Laptop">
+            <img src="images/smartphone.jpg" alt="Smartphone">
+            <img src="images/headphones.jpg" alt="Headphones">
+            <img src="images/tablet.jpg" alt="Tablet">
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <h2>Customer Testimonials</h2>
+        <div class="testimonials">
+            <blockquote>
+                "ElectroMart has the best selection and prices. My new laptop is amazing!"<br>
+                <cite>- Sarah L.</cite>
+            </blockquote>
+            <blockquote>
+                "Fast shipping and great customer service. Highly recommend!"<br>
+                <cite>- Mike D.</cite>
+            </blockquote>
+            <blockquote>
+                "The headphones are top-notch. Will shop again!"<br>
+                <cite>- Priya S.</cite>
+            </blockquote>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form action="submit_form.php" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-modal-content">
+            <span class="close-cart-modal">&times;</span>
+            <h3>Carrito de compras</h3>
+            <div class="cart-items" id="cart-items">
+                <!-- Ejemplo de producto en el carrito -->
+                <div class="product">
+                    <img src="images/laptop.jpg" alt="Laptop">
+                    <h4>UltraBook Pro</h4>
+                    <span>$999</span>
+                </div>
+                <!-- Si no hay productos, muestra: -->
+                <!-- <p>No hay productos en el carrito.</p> -->
+            </div>
+            <button onclick="window.location.href='cart.html'">Ir al carrito</button>
+            <button id="pay-btn" onclick="window.location.href='checkout.html'">Pagar</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 ElectroGlobalShop. All rights reserved.</p>
+    </footer>
+
+    <script>
+document.querySelectorAll('.fa-shopping-cart').forEach(function(cartIcon) {
+    cartIcon.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('cart-modal').style.display = 'block';
+
+        // Mostrar u ocultar el botón "Pagar" según si hay productos
+        var cartItems = document.getElementById('cart-items');
+        var payBtn = document.getElementById('pay-btn');
+        if (cartItems.querySelector('.product')) {
+            payBtn.style.display = 'inline-block';
+        } else {
+            payBtn.style.display = 'none';
+        }
+    });
+});
+document.querySelector('.close-cart-modal').onclick = function() {
+    document.getElementById('cart-modal').style.display = 'none';
+};
+window.onclick = function(event) {
+    var modal = document.getElementById('cart-modal');
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+};
+</script>
+</body>
+</html>

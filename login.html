@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión - ElectroGlobalShop</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/logo.png" alt="ElectroGlobalShop" height="40">
+                <span>ElectroGlobalShop</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><strong>Inicio</strong></a></li>
+                    <li><a href="catalog.html"><strong>Catálogo</strong></a></li>
+                    <li><a href="gallery.html"><strong>Galería</strong></a></li>
+                    <li><a href="testimonials.html"><strong>Testimonios</strong></a></li>
+                    <li><a href="contact.html"><strong>Contacto</strong></a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <a href="login.html" title="Iniciar sesión"><i class="fas fa-user"></i></a>
+                <a href="cart.html" title="Carrito de compras"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <h2>Iniciar sesión</h2>
+        <form action="login_process.php" method="post">
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <button type="submit">Ingresar</button>
+        </form>
+        <p style="text-align:center; margin-top:20px;">
+            ¿No tienes cuenta? <a href="#">Regístrate aquí</a>
+        </p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 ElectroGlobalShop. All rights reserved.</p>
+    </footer>
+</body>
+</html>
